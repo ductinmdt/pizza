@@ -1,0 +1,53 @@
+### Create Org
+
+POST http://um.novasquare.vn:8080/api/v1/org/createOrg
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+{
+  "NAME": "org 3",
+  "DESC": "org 3",
+  "ABB": "ABB3",
+  "LOGO_NAME": "org3.png",
+  "NOTE": "note"
+}
+
+### Get all Orgs
+
+GET http://um.novasquare.vn:8080/api/v1/org/getOrgs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+### Get Org
+
+GET http://um.novasquare.vn:8080/api/v1/org/getOrg-by-domain
+Content-Type: application/json
+
+{
+  "domain": "http://um.novasquare.vn:3000"
+}
+
+
+### Update Org
+
+PATCH  http://um.novasquare.vn:8080/api/v1/org/update-org/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+{
+  "NAME": "org 1n",
+  "DESC": "org 1n",
+  "ABB": "ABB1n",
+  "LOGO_NAME": "org1n.png",
+  "NOTE": "noten"
+}
+
+### Delete Org
+
+DELETE   http://um.novasquare.vn:8080/api/v1/org/deleteOrg/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+{
+    "NAME":"User Management",
+    "DESC":"user management was updated"
+}

@@ -1,0 +1,18 @@
+### Get All Users
+
+GET http://um.novasquare.vn:8080/api/v1/user/getUsers
+
+### Get Profile User
+
+GET http://um.novasquare.vn:8080/api/v1/user/get-profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjU4MTk2OTI5LCJleHAiOjE2NTgxOTY5NDR9.q__s9wzQDk3x-V_ooXl7349Lmwp4xaM0o4EwsaXRB9g
+
+### assignRoleIdsToUserId
+POST http://um.novasquare.vn:8080/api/v1/user/assignRoleIdsToUserId
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyOTc4LCJleHAiOjE2NTkwOTAxNzh9.QOczb8Qb97jIRYvs-KlHJRckLU1KWI2Yx3y3aB_aYss
+
+{
+    "roleIds":[1,2],
+    "userId": 1
+}

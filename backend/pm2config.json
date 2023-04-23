@@ -1,0 +1,12 @@
+{
+  "name": "WNS_API_1_CD",
+  "script": "dist/wns_api_1",
+  "watch": true,
+  "ignore_watch": [
+    "node_modules",
+    "swagger",
+    "dist",
+    "logs"
+  ],
+  "log": "logs/log.txt"
+}

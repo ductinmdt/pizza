@@ -1,0 +1,43 @@
+### Create App
+
+POST http://um.novasquare.vn:8080/api/v1/app/createApp
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+{
+    "NAME":"User Management",
+    "DESC":"user management",
+    "TYPE":0
+}
+
+### Get all Apps
+
+GET http://um.novasquare.vn:8080/api/v1/app/getApps
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+### Get App
+
+GET http://um.novasquare.vn:8080/api/v1/app/getApp/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+### Update App
+
+PATCH  http://um.novasquare.vn:8080/api/v1/app/updateApp/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+{
+    "NAME":"User",
+    "DESC":"user management was updated"
+}
+
+### Delete App
+
+DELETE   http://um.novasquare.vn:8080/api/v1/app/deleteApp/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyNzQ5LCJleHAiOjE2NTkwODk5NDl9.0IqHcD2ZTW4Pexx5UtmOrjzQopjL6eEeGWtiYay7tCM
+
+{
+    "NAME":"User Management",
+    "DESC":"user management was updated"
+}

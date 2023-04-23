@@ -1,0 +1,40 @@
+### Create Permission
+
+POST http://um.novasquare.vn:8080/api/v1/permission/createPermission
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4MzkxMDQ1LCJleHAiOjE2NTgzOTQ2NDV9.I3C8b4vW4dEi0MIKx6qoA07sTzGYJ7TnrRzs2sUiANQ
+
+{
+    "NAME":"Create",
+    "DESC":"create by me"
+}
+
+### Get all permissions
+
+GET http://um.novasquare.vn:8080/api/v1/permission/getPermissions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4MzkxMDQ1LCJleHAiOjE2NTgzOTQ2NDV9.I3C8b4vW4dEi0MIKx6qoA07sTzGYJ7TnrRzs2sUiANQ
+### Get all permissions by modules
+
+GET http://um.novasquare.vn:8080/api/v1/permission/getPermissions-by-moduleId/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4MzkxMDQ1LCJleHAiOjE2NTgzOTQ2NDV9.I3C8b4vW4dEi0MIKx6qoA07sTzGYJ7TnrRzs2sUiANQ
+
+### Get permission
+
+GET http://um.novasquare.vn:8080/api/v1/permission/getPermission/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4MzkxMDQ1LCJleHAiOjE2NTgzOTQ2NDV9.I3C8b4vW4dEi0MIKx6qoA07sTzGYJ7TnrRzs2sUiANQ
+
+### Update permission
+
+PATCH  http://um.novasquare.vn:8080/api/v1/permission/updatePermission/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4MzkxMDQ1LCJleHAiOjE2NTgzOTQ2NDV9.I3C8b4vW4dEi0MIKx6qoA07sTzGYJ7TnrRzs2sUiANQ
+
+{
+    "NAME":"Create",
+    "DESC":"create by me was updated"
+}
+
+### Delete Permission
+
+DELETE   http://um.novasquare.vn:8080/api/v1/permission/deletePermission/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4MzkxMDQ1LCJleHAiOjE2NTgzOTQ2NDV9.I3C8b4vW4dEi0MIKx6qoA07sTzGYJ7TnrRzs2sUiANQ

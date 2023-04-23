@@ -1,0 +1,56 @@
+### Create Role
+
+POST http://um.novasquare.vn:8080/api/v1/module/createModule
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyOTc4LCJleHAiOjE2NTkwOTAxNzh9.QOczb8Qb97jIRYvs-KlHJRckLU1KWI2Yx3y3aB_aYss
+
+{
+    "NAME":"Modules",
+    "DESC":"modules management",
+    "MODULE_CD":"modules",
+    "APP_ID": 1
+}
+
+### Get all modules
+
+GET http://um.novasquare.vn:8080/api/v1/module/getModules
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyOTc4LCJleHAiOjE2NTkwOTAxNzh9.QOczb8Qb97jIRYvs-KlHJRckLU1KWI2Yx3y3aB_aYss
+
+### Get all modules by app Id
+
+GET http://um.novasquare.vn:8080/api/v1/module/getModules-by-appId/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5NDI4NTQ4LCJleHAiOjE2NTk0MzU3NDh9.ke43UISn7lsWJ2MdsvtpczZ2JX5Kq1nredq4HuN9fp0
+
+### Get module
+
+GET http://um.novasquare.vn:8080/api/v1/module/getModule/1
+Authorization: 
+
+### Update Module
+
+PATCH  http://um.novasquare.vn:8080/api/v1/module/updateModule/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyOTc4LCJleHAiOjE2NTkwOTAxNzh9.QOczb8Qb97jIRYvs-KlHJRckLU1KWI2Yx3y3aB_aYss
+
+{
+    "NAME":"Apps",
+    "DESC":"Apps Management",
+    "APP_ID":1
+}
+
+### Delete Module
+
+DELETE   http://um.novasquare.vn:8080/api/v1/module/deleteModule/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU5MDgyOTc4LCJleHAiOjE2NTkwOTAxNzh9.QOczb8Qb97jIRYvs-KlHJRckLU1KWI2Yx3y3aB_aYss
+
+### Assign permissions
+
+POST http://um.novasquare.vn:8080/api/v1/module/assign-permission-for-module/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU4NzM0NzE0LCJleHAiOjE2NTg3MzQ3MTl9.S0wZH5I-aQVf554K-A3wvdymNIIFVHJRMT8M_TkvHV0
+
+{
+   "permissions_id":[
+    2,11
+   ]
+}

@@ -1,0 +1,882 @@
+openapi: 3.0.1
+info:
+  title: Human Resource REST APIs Document
+  # description: Human Resource system REST API
+  # termsOfService: http://swagger.io/terms/
+  # contact:
+  #   name: Hyperledger Team
+  # license:
+  #   name: Apache 2.0
+  #   url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  # - url: http://wns.novasquare.vn:9999
+  - url: http://localhost:9999
+
+paths:
+  /api/v1/auth/register:
+    post:
+      tags:
+        - authorization
+      summary: create user
+      operationId: create user
+      requestBody:
+        description: create user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user"
+            example:
+              "fullname": "Đức Tin"
+              "username": "tin.mai"
+              "email": "tin@gmail.com"
+              "password": "tin123"
+              "birthday": "2001-11-27"
+              "address": "tam xuân 2 núi thành quảng nam"
+              "phone": "0394272718"
+              "avatar": "img"
+              "gender": "Nam"
+              "role": "admin"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+
+  /api/v1/auth/login:
+    post:
+      tags:
+        - authorization
+      summary: login
+      operationId: login
+      requestBody:
+        description: login
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user"
+            example:
+              "username": "duy.phan"
+              "password": "12345678"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+  
+  /api/v1/product/getAll:
+    get:
+      tags:
+        - products
+      summary: get all products
+      operationId: get all products
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/product/createProduct:
+    post:
+      tags:
+        - products
+      summary: create product
+      operationId: create product
+      requestBody:
+        description: create product
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/product"
+            example:
+              "cd": "cd 01"
+              "productName": "productName 01"
+              "description": "description 01"
+              "priceNew": 100000
+              "priceOld": 50000
+              "stock": 10
+              "url": "url 01"
+
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/product/getProduct/{productId}:
+    get:
+      tags:
+        - products
+      summary: get product details by product ID
+      operationId: get product details by product ID
+      parameters:
+        - name: productId
+          in: path
+          description: Please provide productId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/product/updateProduct/{productId}:
+    patch:
+      tags:
+        - products
+      summary: update product details by product ID
+      operationId: update product details by product ID
+      parameters:
+        - name: productId
+          in: path
+          description: Please provide productId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      requestBody:
+        description: update product
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/product"
+            example:
+              "cd": "cd 02"
+              "productName": "productName 02"
+              "description": "description 02"
+              "priceNew": 200000
+              "priceOld": 50000
+              "stock": 20
+              "url": "url 02"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/product/deleteProduct/{productId}:
+    delete:
+      tags:
+        - products
+      summary: delete product by product ID
+      operationId: delete product by product ID
+      parameters:
+        - name: productId
+          in: path
+          description: Please provide productId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/user/getUsers:
+    get:
+      tags:
+        - users
+      summary: get all users
+      operationId: get all users
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/user/create-user:
+    post:
+      tags:
+        - users
+      summary: create user
+      operationId: create user
+      requestBody:
+        description: create user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user"
+            example:
+              "fullname": "name 01"
+              "username": "username 01"
+              "email": "email 01"
+              "password": "email 01"
+              "birthday": 2001-11-25
+              "address": "email 01"
+              "phone": "7326821379"
+              "avatar": "avatar 01"
+              "gender": "gender 01"
+              "role": "role 01"
+
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/user/get-user/{userId}:
+    get:
+      tags:
+        - users
+      summary: get user details by user ID
+      operationId: get user details by user ID
+      parameters:
+        - name: userId
+          in: path
+          description: Please provide userId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/user/update-user/{userId}:
+    patch:
+      tags:
+        - users
+      summary: update user details by user ID
+      operationId: update user details by user ID
+      parameters:
+        - name: userId
+          in: path
+          description: Please provide userId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      requestBody:
+        description: update user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user"
+            example:
+              "fullname": "name 02"
+              "username": "username 02"
+              "email": "email 02"
+              "password": "email 02"
+              "birthday": 2002-04-25
+              "address": "email 02"
+              "phone": "7326822379"
+              "avatar": "avatar 02"
+              "gender": "gender 02"
+              "role": "role 02"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/user/delete-user/{userId}:
+    delete:
+      tags:
+        - users
+      summary: delete user by user ID
+      operationId: delete user by user ID
+      parameters:
+        - name: userId
+          in: path
+          description: Please provide userId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/comment/getAll:
+    get:
+      tags:
+        - comments
+      summary: get all comments
+      operationId: get all comments
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/comment/createComment:
+    post:
+      tags:
+        - comments
+      summary: create comment
+      operationId: create comment
+      requestBody:
+        description: create comment
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/comment"
+            example:
+              "product_id": 1
+              "user_id": 1
+              "rate": 2
+              "description": "description 01"
+
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/comment/getComment/{commentId}:
+    get:
+      tags:
+        - comments
+      summary: get comment details by comment ID
+      operationId: get comment details by comment ID
+      parameters:
+        - name: commentId
+          in: path
+          description: Please provide commentId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/comment/updateComment/{commentId}:
+    patch:
+      tags:
+        - comments
+      summary: update comment details by comment ID
+      operationId: update comment details by comment ID
+      parameters:
+        - name: commentId
+          in: path
+          description: Please provide commentId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      requestBody:
+        description: update comment
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/comment"
+            example:
+              "product_id": 2
+              "user_id": 2
+              "rate": 4
+              "description": "description 02"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/comment/deleteComment/{commentId}:
+    delete:
+      tags:
+        - comments
+      summary: delete comment by comment ID
+      operationId: delete comment by comment ID
+      parameters:
+        - name: commentId
+          in: path
+          description: Please provide commentId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/order/getAll:
+    get:
+      tags:
+        - orders
+      summary: get all orders
+      operationId: get all orders
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/order/createOrder:
+    post:
+      tags:
+        - orders
+      summary: create order
+      operationId: create order
+      requestBody:
+        description: create order
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/order"
+            example:
+              "user_id": 1
+              "status": "đã bán"
+              "totalPrice": 2
+              "address": "description 01"
+
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/order/getOrder/{orderId}:
+    get:
+      tags:
+        - orders
+      summary: get order details by order ID
+      operationId: get order details by order ID
+      parameters:
+        - name: orderId
+          in: path
+          description: Please provide orderId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/order/updateOrder/{orderId}:
+    patch:
+      tags:
+        - orders
+      summary: update order details by order ID
+      operationId: update order details by order ID
+      parameters:
+        - name: orderId
+          in: path
+          description: Please provide orderId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      requestBody:
+        description: update order
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/order"
+            example:
+              "user_id": 1
+              "status": "hủy"
+              "totalPrice": 4
+              "address": "description 02"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/order/deleteOrder/{orderId}:
+    delete:
+      tags:
+        - orders
+      summary: delete order by order ID
+      operationId: delete order by order ID
+      parameters:
+        - name: orderId
+          in: path
+          description: Please provide orderId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/orderDetail/getAll:
+    get:
+      tags:
+        - orderDetails
+      summary: get all orderDetails
+      operationId: get all orderDetails
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/orderDetail/createOrderDetail:
+    post:
+      tags:
+        - orderDetails
+      summary: create orderDetail
+      operationId: create orderDetail
+      requestBody:
+        description: create orderDetail
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/orderDetail"
+            example:
+              "product_id": 1
+              "order_id": 1
+              "quantity": 2
+
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/orderDetail/getOrderDetail/{orderDetailId}:
+    get:
+      tags:
+        - orderDetails
+      summary: get orderDetail details by orderDetail ID
+      operationId: get orderDetail details by orderDetail ID
+      parameters:
+        - name: orderDetailId
+          in: path
+          description: Please provide orderDetailId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/orderDetail/updateOrderDetail/{orderDetailId}:
+    patch:
+      tags:
+        - orderDetails
+      summary: update orderDetail details by orderDetail ID
+      operationId: update orderDetail details by orderDetail ID
+      parameters:
+        - name: orderDetailId
+          in: path
+          description: Please provide orderDetailId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      requestBody:
+        description: update orderDetail
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/orderDetail"
+            example:
+              "product_id": 1
+              "order_id": 1
+              "quantity": 2
+      responses: 
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
+
+  /api/v1/orderDetail/deleteOrderDetail/{orderDetailId}:
+    delete:
+      tags:
+        - orderDetails
+      summary: delete orderDetail by orderDetail ID
+      operationId: delete orderDetail by orderDetail ID
+      parameters:
+        - name: orderDetailId
+          in: path
+          description: Please provide orderDetailId
+          required: true
+          schema:
+            type: string
+            example: "1"
+      responses:
+        "200":
+          description: Success
+          content: {}
+        "400":
+          description: Bad Request
+          content: {}
+        "401":
+          description: UnAuthorized
+          content: {}
+        "404":
+          description: Not found
+          content: {}
+      security:
+        - JWT: []
