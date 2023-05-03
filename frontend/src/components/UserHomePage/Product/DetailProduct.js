@@ -60,10 +60,10 @@ const DetailProduct = () => {
 
   const settings = {
     dots: true,
-    slidesToShow: 4,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 4000,
+    speed: 2000,
     autoplaySpeed: 4000,
   };
 

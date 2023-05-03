@@ -19,7 +19,7 @@ const cartReducer = (state = initialState, action) => {
       const isLoggIn = localStorage.getItem("isLogged");
       if (!isLoggIn) {
         // localStorage.removeItem("cartProducts")
-        toast.warning("Yêu cầu đăng nhập để thực hiện mua hàng");
+        toast.error("Yêu cầu đăng nhập để thực hiện mua hàng");
         return { ...state, cartProducts: [] };
       }
       toast.success("Thêm sản phẩm thành công");

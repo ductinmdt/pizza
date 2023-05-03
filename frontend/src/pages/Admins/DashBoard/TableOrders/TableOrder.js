@@ -28,6 +28,8 @@ const TableOrder = () => {
         setSearchedColumn(dataIndex);
     };
 
+    
+
     const handleReset = (clearFilters) => {
         clearFilters();
         setSearchText('');
@@ -140,7 +142,7 @@ const TableOrder = () => {
             render: (item) => {
                 return (
                     <>
-                        <p ><span>Tên:</span> {item.fullname}</p>
+                        <p ><span>Tên:</span> {item?.user?.fullname}</p>
                         <p><span>Số ĐT:</span> {item.phoneNumber}</p>
                     </>
                 )

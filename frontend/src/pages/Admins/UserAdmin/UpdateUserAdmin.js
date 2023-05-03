@@ -281,6 +281,7 @@ const UpdateUserAdmin = () => {
                 ]}
               >
                 <Select
+                  disabled={Number(id) === profile.id}
                   options={roles}
                   placeholder="Vui lòng chọn phân quyền *"
                 ></Select>

@@ -19,6 +19,7 @@ import moment from "moment";
 import weekday from "dayjs/plugin/weekday";
 import localeData from "dayjs/plugin/localeData";
 import { toast } from "react-toastify";
+import { loadOrderDetailApi } from "../../../apis/orderDetailApi";
 
 import {
   getRevenueByDayApi,
@@ -62,12 +63,15 @@ const DashBoard = () => {
   const [yearSelect, setYearSelect] = useState("2023");
   const [yearData, setYearData] = useState([]);
   const [dayData, setDayData] = useState([]);
+  // const [bestSeller, setBestSeller] = useState();
+  const [orderDetails, setOrderDetails] = useState();
 
   useEffect(() => {
     dispatch(loadUsersAdminStart());
     dispatch(loadProductStart());
     dispatch(loadOrderStart());
-    dispatch(loadCommentStart());
+    dispatch(loadCommentStart()); 
+    handleGetOrderDetails();
   }, []);
 
   const orderNew = orders.filter(
@@ -121,6 +125,64 @@ const DashBoard = () => {
     });
   }, [startDay, endDay]);
   /* END GET DATA FOR CHART */
+
+  const countOccurrences = (arr, key) => {
+    const map = new Map();
+    arr.forEach((item) => {
+      if (item[key] in map) {
+        map[item[key]] += 1;
+      } else {
+        map[item[key]] = 1;
+      }
+    });
+    const entries = Object.entries(map);
+    entries.sort((a, b) => b[1] - a[1]);
+    return entries;
+  };
+
+  const handleGetOrderDetails = async () => {
+    try {
+      const res = await loadOrderDetailApi();
+      if (res.data?.status === 200) {
+        setOrderDetails(res?.data?.elements);
+      }
+    } catch (err) {
+      console.log("err :>> ", err);
+    }
+  };
+
+  // const handleGetProductBestSellersApi = async () => {
+  //   try {
+  //     const res = await loadOrderDetailApi();
+  //     console.log('res :>> ', res);
+  //     const orderDetails = res?.data?.elements;
+  //     if (res.data?.status === 200) {
+  //       let counts = countOccurrences(orderDetails, "product_id")
+  //       counts = counts.slice(0, 6)
+  //       let bestSellerList = []
+  //       counts.forEach((count) => {
+  //         bestSellerList.push(products.find((product) => product.id === Number(count[0])))
+  //       })
+  //       console.log('bestSellerList :>> ', bestSellerList);
+  //       setBestSeller(bestSellerList)
+  //     }
+  //   } catch (err) {
+  //     console.log("err :>> ", err);
+  //   }
+  // };
+  let bestSeller
+
+  if (orderDetails) {
+    let counts = countOccurrences(orderDetails, "product_id");
+    counts = counts.slice(0, 6);
+    let bestSellerList = [];
+    counts.forEach((count) => {
+      bestSellerList.push(
+        products.find((product) => product.id === Number(count[0]))
+      );
+    });
+    bestSeller = bestSellerList
+  }
 
   return (
     <div className="container-fluid">
@@ -232,8 +294,8 @@ const DashBoard = () => {
       <div className="row my-5">
         <div className="col-md-4 col-12 p-4 product-store">
           <h5 className="mb-4">Top sản phẩm bán chạy</h5>
-          {products &&
-            products.slice(0, 6).map((product, index) => {
+          {bestSeller &&
+            bestSeller.slice(0, 6).map((product, index) => {
               return (
                 <Bestseller orders={orders} product={product} key={index} />
               );
@@ -248,7 +310,7 @@ const DashBoard = () => {
       </div>
       <div className="row my-5">
         <div className="col-md-12 col-12 info-user p-4">
-          <h4>Bảng thông tin Order</h4>
+          <h4>Bảng thông tin đơn hàng</h4>
           <TableOrder />
         </div>
       </div>

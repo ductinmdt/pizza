@@ -29,7 +29,7 @@ const HomePageMenus = () => {
         <div className="container">
           <div className="row">
             <div className="menu-title">
-              <h1 className="mb-5">SẢN PHẨM MỚI</h1>
+              <h1 className="mb-5">SẢN PHẨM</h1>
             </div>
 
             <Tabs defaultActiveKey="0" centered className="col-md-12">

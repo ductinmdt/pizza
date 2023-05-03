@@ -33,22 +33,6 @@ router.get(
 )
 router.get("/get-profile", authenticate.authenticate, userController.getProfile)
 router.get("/get-user/:id", authenticate.authenticate, userController.getUser)
-router.get(
-  "/getAppsByUserId",
-  authenticate.authenticate,
-  userController.getAppsByUserId
-)
-router.get(
-  "/getPermissionsByUserId",
-  authenticate.authenticate,
-  userController.getPermissionsByUserId
-)
-router.post("/forgot-password", userController.forgotPassword)
-router.post(
-  "/convertPwStringToHashByUserId/:userId",
-  authenticate.authenticate,
-  userController.convertPwStringToHashByUserId
-)
 router.post(
   "/reset-password/:id",
   authenticate.authenticate,
@@ -64,16 +48,6 @@ router.delete(
   "/delete-user/:id",
   authenticate.authenticate,
   userController.deleteUser
-)
-router.post(
-  "/assignRoleIdsToUserId",
-  authenticate.authenticate,
-  userController.assignRoleIdsToUserId
-)
-router.post(
-  "/unassignRoleIdsFromUserId",
-  authenticate.authenticate,
-  userController.unassignRoleIdsFromUserId
 )
 
 module.exports = router

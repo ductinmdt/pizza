@@ -60,7 +60,7 @@ export function* onCreateUserAdmin() {
     yield takeLatest(types.CREATE_USER_ADMIN_START, onCreateUserStartAsync);
 }
 
-//create user admin
+//change password user admin
 function* onChangePasswordStartAsync({ payload }) {
     try {
         const res = yield call(changePasswordApi,payload.id, {password: payload.password});

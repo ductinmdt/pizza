@@ -7,6 +7,8 @@ import "./settingUi.scss";
 import ModalEditUser from "./ModalEditUser";
 import { actGetProfileUI } from "../../../Redux/actions/actionAuthUser";
 import { changePasswordStart } from "../../../Redux/actions/userAdminAction";
+import { changePasswordForUserApi } from "../../../apis/userApi";
+import { toast } from "react-toastify";
 
 const layout = {
   labelCol: {
@@ -31,10 +33,11 @@ const SettingUserUI = () => {
   const [isChangedPassword, setIsChangedPassword] = useState(false);
   const userUI = JSON.parse(localStorage.getItem("userUI")) || null;
   const [form] = Form.useForm();
+  const [isRefesh, setIsRefesh] = useState(false);
 
   useEffect(() => {
     dispatch(loadOrderStart());
-  }, []);
+  }, [isRefesh]);
 
   useEffect(() => {
     if (userUI) {
@@ -42,14 +45,20 @@ const SettingUserUI = () => {
     }
   }, []);
 
-  const onFinish = (data) => {
-    dispatch(changePasswordStart(data));
-    setIsChangedPassword(false);
+  const onFinish = async (data) => {
+    try {
+      const res = await changePasswordForUserApi(data);
+      if (res?.data?.status === 200) {
+        setIsChangedPassword(false);
+        form.resetFields();
+        toast.success(res?.data?.message);
+      }
+    } catch (err) {
+      toast.error(err?.response?.data?.message);
+    }
   };
 
   const orderUser = orders.filter((item) => item.user_id === profile.id);
-
-  console.log('orderUser :>> ', orderUser);
 
   return (
     <div className="setting">
@@ -166,7 +175,7 @@ const SettingUserUI = () => {
         <div className="row mt-5">
           <div className="col-12">
             <h4>Lịch sử đặt hàng</h4>
-            <HistoryOrder orderUser={orderUser} />
+            <HistoryOrder isRefesh={isRefesh} setIsRefesh={setIsRefesh} orderUser={orderUser} />
           </div>
         </div>
         <div>

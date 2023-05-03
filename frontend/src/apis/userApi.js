@@ -30,6 +30,10 @@ export const getUserByEmail = async (email) => {
     return data[0];
 }
 
-//Change password
+//Change password for admin
 export const changePasswordApi = async (id, user) =>
     await axiosClient.post(`user/reset-password/${id}`, user)
+
+//Change password for user
+export const changePasswordForUserApi = async ( user) =>
+await axiosClient.post(`auth/change-password`,user)
