@@ -137,7 +137,8 @@ const orderController = {
         count.forEach((countItem, index) => {
           totalPrice += countItem.totalPrice;
         });
-        item.totalPrice = Math.round(totalPrice / count.length);
+        // item.totalPrice = Math.round(totalPrice / count.length);
+        item.totalPrice = Math.round(totalPrice);
         return {
           ...item,
           key: moment(item.createdAt).format("DD-MM-YYYY"),
@@ -198,7 +199,8 @@ const orderController = {
         count.forEach((countItem, index) => {
           totalPrice += countItem.totalPrice;
         });
-        item.totalPrice = Math.round(totalPrice / count.length);
+        // item.totalPrice = Math.round(totalPrice / count.length);
+        item.totalPrice = Math.round(totalPrice);
         return {
           ...item,
           key: moment(item.createdAt).format("MM-YYYY"),
