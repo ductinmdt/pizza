@@ -10,11 +10,6 @@ const { TabPane } = Tabs;
 const HomePageMenus = () => {
   const { products } = useSelector((state) => state.products);
   const { categories } = useSelector((state) => state.categories);
-  const coffees = products.filter((item) => item.category === "Cà phê");
-  const milkteas = products.filter((item) => item.category === "Trà sữa");
-  const fuitteas = products.filter((item) => item.category === "Trà hoa quả");
-  const smoothies = products.filter((item) => item.category === "Smoothies");
-  const cakes = products.filter((item) => item.category === "Bánh ngọt");
   const dispatch = useDispatch();
   //add productItem
   const onAdd = (product) => {

@@ -11,7 +11,7 @@ import {
   actLogout,
 } from "../../../Redux/actions/actionAuthAdmin";
 import SearchTop from "./SearchTop";
-import logo_mobi from "../../../assets/images/logo_mobi.png";
+import logo_mobi from "../../../assets/images/logo-dark.png";
 
 const HeaderTop = ({ showMenu }) => {
   const dispatch = useDispatch();

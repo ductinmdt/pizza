@@ -21,7 +21,7 @@ const antIcon = (
     />
 );
 
-const Coffee = () => {
+const Categories = () => {
     const { products, loading } = useSelector(state => state.products)
     const dispatch = useDispatch();
     const [dataFilter, setDataFilter] = useState('');
@@ -204,6 +204,6 @@ const Coffee = () => {
     );
 };
 
-export default Coffee;
+export default Categories;
 
 

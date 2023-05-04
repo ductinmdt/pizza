@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, useHistory } from 'react-router-dom';
-import logo_mobile from '../../../assets/images/logo_mobi.png';
+import logo_mobile from '../../../assets/images/logo-dark.png';
 import { Image } from 'antd';
 import './menumobi.scss'
 import { useDispatch, useSelector } from 'react-redux';

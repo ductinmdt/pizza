@@ -5,12 +5,6 @@ import hinhanh7 from "../../assets/images/newpage/untitled-5.jpg";
 import hinhanh8 from "../../assets/images/newpage/untitled-6.jpg";
 import hinhanh9 from "../../assets/images/newpage/untitled-2.jpg";
 import hinhanh10 from "../../assets/images/newpage/untitled-3.jpg";
-
-import hinhanh2 from "../../assets/images/newpage/pictureblog_1.jpg";
-import hinhanh3 from "../../assets/images/newpage/pictureblog_2.jpg";
-import hinhanh4 from "../../assets/images/newpage/pictureblog_3.jpg";
-import hinhanh5 from "../../assets/images/newpage/pictureblog_4.jpg";
-import hinhanh6 from "../../assets/images/newpage/pictureblog_5.jpg";
 import BreadCrumb from "./../../components/UserHomePage/Main/BreadCrumb";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
