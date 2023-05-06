@@ -42,15 +42,6 @@ const ProductModal = ({ product, onAdd }) => {
                         {Number(product.priceNew).toLocaleString('vi', { style: 'currency', currency: 'VND' })}
                     </p>
                     <p className="productModal__content--des">{product.description}</p>
-                    {/* {product.category === "pizza" &&
-                        <div className="d-flex">
-                            <p className="mr-2">Size:</p>
-                            <Radio.Group onChange={onChange}>
-                                <Radio value="S">S</Radio>
-                                <Radio value="L">L</Radio>
-                            </Radio.Group>
-                        </div>
-                    } */}
                     <div className>
                         <Rate allowHalf disabled value={Math.round(rate * 2) / 2} />
                     </div>

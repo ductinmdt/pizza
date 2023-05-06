@@ -112,7 +112,7 @@ const NewsPage = () => {
                     <NavLink to="/products" activeClassName="selected">
                       <i className="fas fa-angle-right"></i>&ensp;Sản phẩm
                     </NavLink>
-                    <ul className="sub-menu">
+                    {/* <ul className="sub-menu">
                       <li className="hash-child">
                         <Link to="/products/coffees">Cà Phê</Link>
                       </li>
@@ -131,7 +131,7 @@ const NewsPage = () => {
                       <li>
                         <Link to="/products/cakes">Bánh Ngọt</Link>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                   <li>
                     <NavLink to="/news" activeClassName="selected">

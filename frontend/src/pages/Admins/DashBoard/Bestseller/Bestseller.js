@@ -14,7 +14,7 @@ const Bestseller = ({ orders, product }) => {
                 />
                 <div className="d-flex flex-column ml-3">
                     <span>{product?.productName}</span>
-                    <Rate style={{ fontSize: 15 }} disabled defaultValue={5} />
+                    {/* <Rate style={{ fontSize: 15 }} disabled defaultValue={5} /> */}
                 </div>
             </div>
             <span className="mr-2"> {Number(product?.priceNew).toLocaleString('vi', { style: 'currency', currency: 'VND' })}</span>

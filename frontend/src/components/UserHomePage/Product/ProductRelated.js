@@ -26,7 +26,7 @@ const ProductRelated = ({ product, onAdd }) => {
                     </span>
                     <div className="product-action">
                         <div className="product-size">
-                            {product.category === "Trà sữa" &&
+                            {product.category === "pizza" &&
                                 <Radio.Group onChange={onChange} value={size}>
                                     <Radio value="S">S</Radio>
                                     <Radio value="L">L</Radio>

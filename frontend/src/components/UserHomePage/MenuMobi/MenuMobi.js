@@ -69,12 +69,6 @@ const MenuMobi = ({ showMenu }) => {
                     {visible &&
                         <ul className="sub-menu1">
                             <li><Link to="/products">Tất cả sản phẩm</Link></li>
-                            <li><Link to="/products/coffees">Cà Phê</Link></li>
-                            <li><Link to="/products/smoothies">Smoothies</Link></li>
-                            <li><Link to="/products/fruitteas">Trà hoa quả</Link></li>
-                            <li><Link to="/products/teahots">Trà nóng</Link></li>
-                            <li><Link to="/products/milkteas">Trà sữa</Link></li>
-                            <li><Link to="/products/cakes">Bánh Ngọt</Link></li>
                         </ul>
                     }
                 </li>

@@ -102,27 +102,6 @@ const authController = {
     const { username, password } = req.body;
     try {
       let user;
-      //connect AD to login
-      // if (
-      //   process.env.LOGIN_BY_AD == "true" &&
-      //   username != process.env.SA_USERNAME
-      // ) {
-      //   let usernameToCheck = username.split("@");
-      //   usernameToCheck = usernameToCheck[0];
-      //   const result = await loginAD(username, password);
-      //   if (!result) {
-      //     res
-      //       .status(404)
-      //       .json(
-      //         createSucess(
-      //           404,
-      //           "Login failed. Please check username, password and try again",
-      //           {}
-      //         )
-      //       );
-      //     return;
-      //   }
-      // } else {
         user = await authService.checkUserExist(username);
         // if (!user) throw createError.NotFound("Người dùng không tồn tại.")
         if (!user) {
@@ -144,36 +123,6 @@ const authController = {
         if (user?.User_Status && !user?.User_Status?.IS_LOGIN) {
           throw createError.BadRequest(user?.User_Status?.DESC);
         }
-      // }
-      // if (
-      //   process.env.LOGIN_BY_AD == "true" &&
-      //   username != process.env.SA_USERNAME
-      // ) {
-      //   let usernameToCheck = username.split("@");
-      //   usernameToCheck = usernameToCheck[0];
-      //   user = await authService.checkUserExist(usernameToCheck);
-      //   if (!user) {
-      //     res
-      //       .status(400)
-      //       .json(
-      //         createSucess(400, "Người dùng không tồn tại in WNS system.", {
-      //           username: username,
-      //         })
-      //       );
-      //     return;
-      //   }
-      // }
-
-      // let storedRefreshToken = refreshTokenStore.find(x => x.userId == user.id)
-
-      // if (storedRefreshToken == undefined) {
-      //   refreshTokenStore.push({
-      //     userId: user.id,
-      //     refreshToken: refresh_token
-      //   })
-      // } else {
-      //   refreshTokenStore[refreshTokenStore.findIndex(x => x.userId == user.id)].refreshToken = refresh_token;
-      // }
       const access_token = generateAccessToken({ id: user.id });
       const refresh_token = generateRefreshToken({ id: user.id });
       user.password = undefined;

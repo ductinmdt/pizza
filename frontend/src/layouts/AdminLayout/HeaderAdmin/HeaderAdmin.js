@@ -117,7 +117,7 @@ const HeaderAdmin = ({ handleToggle }) => {
                     </div>
                     <div className="navbar-brand ">
                         <Link to='/admin'>
-                            <img src={logo} alt="Tee and coffee" />
+                            <img src={logo} alt="logo" />
                         </Link>
                     </div>
                     <div className="user-container">

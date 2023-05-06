@@ -36,11 +36,6 @@ const Menus = () => {
                                 </NavLink>
                                 <ul className="sub__menu">
                                     {categories.map(category => <li key={category.id}><Link to={`/products/${category?.id}`}>{category?.categoryName}</Link></li>)}
-                                    {/* <li><Link to="/products/coffees">Cà Phê</Link></li>
-                                    <li><Link to="/products/smoothies">Smoothies</Link></li>
-                                    <li><Link to="/products/fruitteas">Trà hoa quả</Link></li>
-                                    <li><Link to="/products/teahots">Trà nóng</Link></li>
-                                    <li><Link to="/products/cakes">Bánh Ngọt</Link></li> */}
                                 </ul>
                             </li>
                             <li><NavLink to="/news" activeClassName="selected">
